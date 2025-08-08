@@ -1,99 +1,69 @@
-# BPE vs GPE Model Comparison
+BPE-GPE Model Comparison Project
+A Python-based NLP project comparing Byte Pair Encoding (BPE) and Grapheme-level (character-based) tokenization models on Tamil text. This tool benchmarks both models for vocabulary efficiency, token length, and reconstruction accuracy.
 
-This project implements and compares Byte Pair Encoding (BPE) and Gaussian Process Embedding (GPE) models for text processing and representation learning.
+🚀 How to Run This Project (VS Code)
+1. Clone the repository
 
-## Project Structure
+git clone https://github.com/RoshiniPriya05/BPE-GPE-MODEL.git
+cd BPE-GPE-MODEL
+2. Create and activate a virtual environment
 
-```
+python -m venv venv
+Activate the environment:
+
+On Windows:
+
+
+.\venv\Scripts\activate
+On Mac/Linux:
+
+
+source venv/bin/activate
+3. Install dependencies
+
+pip install -r requirements.txt
+If requirements.txt is missing:
+
+
+pip install numpy matplotlib
+4. Run the Models and Benchmark
+Train the BPE model:
+
+
+python train_bpe.py
+Train the Grapheme (Character-level) model:
+
+
+python train_gpe.py
+Run benchmarking to compare results:
+
+python benchmark.py
+📁 Project Structure
+
+├── train_bpe.py           # Train and test the BPE model
+├── train_gpe.py           # Train and test the Grapheme model
+├── benchmark.py           # Compare and visualize both models
 ├── models/
-│   ├── bpe_model.py      # BPE implementation
-│   ├── gpe_model.py      # GPE implementation
-│   └── base_model.py     # Base model interface
-├── benchmark/
-│   ├── benchmark.py      # Main benchmarking framework
-│   ├── metrics.py        # Evaluation metrics
-│   └── datasets.py       # Dataset utilities
+│   ├── bpe_model.py
+│   ├── gpe_model.py
+│   └── base_model.py
 ├── utils/
-│   ├── preprocessing.py  # Text preprocessing utilities
-│   ├── visualization.py  # Plotting and visualization
-│   └── data_loader.py    # Data loading utilities
-├── experiments/
-│   ├── run_benchmark.py  # Main experiment runner
-│   └── config.py         # Configuration settings
-├── data/                 # Data directory
-├── results/              # Benchmark results
-└── requirements.txt      # Dependencies
-```
+│   ├── preprocessing.py
+│   ├── visualization.py
+│   └── data_loader.py
+├── data/
+│   └── tamil_corpus.txt   # Sample corpus used for training/testing
+├── results/               # Benchmark results and plots
+├── requirements.txt
+└── README.md
+🧪 Sample Input (from data/tamil_corpus.txt)
 
-## Installation
+இந்த உலகம் அழகானது.
+You can modify or expand the corpus in data/tamil_corpus.txt to test with different inputs.
 
-```bash
-pip install -r requirements.txt
-```
+📊 Output
+Tokenized outputs for both models
 
-## Usage
+Metrics like token count and reconstruction quality
 
-### Running the Benchmark
-
-```bash
-python experiments/run_benchmark.py
-```
-
-
-### Running BPE and Grapheme (Char) Model Benchmark
-
-First, ensure you have installed the requirements:
-
-```bash
-pip install -r requirements.txt
-```
-
-To train and test the BPE model:
-
-```bash
-python train_bpe.py --model_type bpe --vocab_size 200 --test_text "என் பெயர் ரோஷினி பிரியா."
-```
-
-To train and test the grapheme (character-level) model:
-
-```bash
-python train_bpe.py --model_type char --test_text "என் பெயர் ரோஷினி பிரியா."
-```
-
-To benchmark both models and compare the number of tokens:
-
-```bash
-python train_bpe.py --model_type both --test_text "என் பெயர் ரோஷினி பிரியா."
-```
-
-The script will print the tokens, number of tokens, and a summary for both models. This helps you compare the efficiency of BPE and grapheme encoding for Tamil or any other language.
-
-#### Required Files
-- `data/tamil_corpus.txt` (your training corpus)
-- `train_bpe.py` (the script)
-- `requirements.txt` (should include `sentencepiece`)
-
-#### Results
-Model files will be saved in the `models/` directory. You can change the test sentence with the `--test_text` argument.
-
-## Features
-
-- **BPE Implementation**: Complete Byte Pair Encoding with vocabulary building and encoding/decoding
-- **GPE Implementation**: Gaussian Process Embedding with kernel functions and optimization
-- **Comprehensive Benchmarking**: Multiple metrics and datasets for comparison
-- **Visualization**: Interactive plots and analysis tools
-- **Modular Design**: Easy to extend and customize
-
-## Benchmarks
-
-The benchmark compares models on:
-- Vocabulary coverage
-- Encoding efficiency
-- Semantic similarity preservation
-- Training time
-- Memory usage
-- Reconstruction quality
-
-## Results
-
-Results are saved in the `results/` directory with detailed analysis and visualizations. 
+Benchmark visualizations saved in the results/ folder
